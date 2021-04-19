@@ -1,0 +1,35 @@
+{
+  "title": "**Commands:**",
+  "description": "Stan twice <3\n",
+  "color": 53380,
+  "footer": {
+    "text": "Pogi ni Adrian hehehe"
+  },
+  "fields": [
+    {
+      "name": "**Memes**",
+      "value": "``eds meme {subreddit}``  - generate random meme from a subreddit",
+      "inline": false
+    },
+    {
+      "name": "**Help**",
+      "value": "``eds help`` - show this message",
+      "inline": false
+    },
+    {
+      "name": "**Yes or (Yes) No**",
+      "value": "``eds yesno {question}`` - sends yes or no",
+      "inline": false
+    },
+    {
+      "name": "**Qoute**",
+      "value": "``eds qoute`` - sends a random qoute ",
+      "inline": false
+    },
+    {
+      "name": "**PP**",
+      "value": "``eds pp/tite {user}`` - measure pp ",
+      "inline": false
+    }
+  ]
+}
