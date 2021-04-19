@@ -3,6 +3,7 @@ require("dotenv").config();
 const Discord = require("discord.js");
 const { meme, yesno, qoute, betterTite, tite } = require("./functions/func");
 const helpEmbed = require("./embeds/help.json");
+const { betterpp } = require("./functions/funcSlash");
 
 const guildId = "828933252986306581";
 const client = new Discord.Client();
@@ -19,7 +20,6 @@ client.on("ready", async () => {
   console.log(`logged in as ${client.user.tag}!`);
 
   const commands = await getApp(guildId).commands.get();
-  // console.log(commands);
 
   await getApp(guildId).commands.post({
     data: {
@@ -63,6 +63,20 @@ client.on("ready", async () => {
       ],
     },
   });
+  await getApp(guildId).commands.post({
+    data: {
+      name: "betterpp",
+      description: "Measure your pp",
+      options: [
+        {
+          name: "User",
+          description: "User",
+          required: false,
+          type: 3,
+        },
+      ],
+    },
+  });
 
   client.ws.on("INTERACTION_CREATE", async (interaction) => {
     const { name, options } = interaction.data;
@@ -91,8 +105,10 @@ client.on("ready", async () => {
       reply(interaction, embed);
     }
     if (command === "yesno") {
-      // console.log("herre", interaction);
       reply(interaction, yesno(interaction, args.question));
+    }
+    if (command === "betterpp") {
+      betterpp(reply, args, interaction);
     }
   });
   const reply = async (interaction, response) => {
