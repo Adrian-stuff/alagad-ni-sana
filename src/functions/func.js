@@ -60,4 +60,32 @@ module.exports.meme = async (handler, args) => {
       );
     });
 };
-// module.exports.tite = ()
+module.exports.betterTite = (handler) => {
+  const body = `    ▐░░░░░░░░░░░▌\n`.repeat(Math.floor(Math.random() * 11));
+  const taggedUser = handler.mentions.users.first();
+  const titeEmbed = {
+    title: "**Measure your pp:**",
+    description:
+      `${taggedUser ? taggedUser.username : handler.author.username}'s pp:\n` +
+      "```        ▄▄ ▄▄\n      ▄▌▒▒▀▒▒▐▄\n     ▐▒▒▒▒▒▒▒▒▒▌\n    ▐▒▒▒▒▒▒▒▒▒▒▒▌\n    ▐▒▒▒▒▒▒▒▒▒▒▒▌\n    ▐▀▄▄▄▄▄▄▄▄▄▀▌\n" +
+      body +
+      "   ▄█▓░░░░░░░░░▓█▄\n  ▄▀░░░░░░░░░░░░░ ▀▄\n ▐░░░░░░░▀▄▒▄▀░░░░░░▌\n▐░░░░░░░▒▒▐▒▒░░░░░░░▌\n▐▒░░░░░▒▒▒▐▒▒▒░░░░░▒▌\n ▀▄▒▒▒▒▒▄▀▒▀▄▒▒▒▒▒▄▀\n   ▀▀▀▀▀     ▀▀▀▀▀```",
+    color: 15406156,
+  };
+  handler.channel.send({ embed: titeEmbed });
+};
+
+module.exports.tite = (handler) => {
+  const body = `     | |\n`.repeat(Math.floor(Math.random() * 11));
+  const taggedUser = handler.mentions.users.first();
+  const titeEmbed = {
+    title: "**Measure your pp:**",
+    description:
+      `${taggedUser ? taggedUser.username : handler.author.username}'s pp:\n` +
+      "```     /'\\\n" +
+      body +
+      "    \\_|_/```",
+    color: 15406156,
+  };
+  handler.channel.send({ embed: titeEmbed });
+};

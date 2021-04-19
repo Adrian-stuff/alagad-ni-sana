@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const Discord = require("discord.js");
-const { meme, yesno, qoute } = require("./functions/func");
+const { meme, yesno, qoute, betterTite, tite } = require("./functions/func");
 const helpEmbed = require("./embeds/help.json");
 
 const guildId = "828933252986306581";
@@ -164,20 +164,13 @@ client.on("message", (message) => {
   if (command === "chatmoko") {
     message.author.send("i love you hehehe");
   }
+  // TITE COMMAND
   if (command === "tite" || command === "pp") {
-    const body = `     | |\n`.repeat(Math.floor(Math.random() * 11));
-    const taggedUser = message.mentions.users.first();
-    // console.log(taggedUser);
-    const titeEmbed = {
-      title: "**Measure your pp:**",
-      description:
-        `${taggedUser ? taggedUser.username : message.author.username}'s pp\n` +
-        "```     /'\\\n" +
-        body +
-        "    \\_|_/```",
-      color: 15406156,
-    };
-    message.channel.send({ embed: titeEmbed });
+    tite(message);
+  }
+  // BETTERTITE COMMAND
+  if (command === "bettertite" || command === "betterpp") {
+    betterTite(message);
   }
 });
 
